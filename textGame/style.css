@@ -4,10 +4,9 @@ body {
 
 header{
     background-image: url("./img/header.jfif");
-    color: red;
+    color: lawngreen;
     width: 75%;
     height: 200px;
-    
     text-align: center;
     font-size: 2em;
     padding-top: 20px;
