@@ -11,15 +11,21 @@ header{
     font-size: 2em;
     padding-top: 20px;
     margin: 0 auto;
+    border-radius: 10px;
 }
 
 .main{
     width: 75%;
     margin: 0 auto;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
 .germ {
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
 }
 
