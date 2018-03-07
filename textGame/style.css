@@ -19,6 +19,10 @@ header{
     text-align: center;
 }
 
+.germ {
+    border-radius: 50%;
+}
+
 nav {
     width: 75%;
     margin: 0 auto;
@@ -29,4 +33,10 @@ nav {
 em{
     color: red;
 }
+
+[href]{
+    color: black;
+}
+
+
 
