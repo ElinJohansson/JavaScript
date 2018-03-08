@@ -1,0 +1,95 @@
+@backgroundColor: lightgray;
+@colorMainBox: white;
+@headerAndFooterTextColor: rgb(89, 228, 34);
+@linkColor: black;
+
+@fontFamily: 'Source Code Pro', monospace;
+
+@distanceToMainBox: 20%;
+@totalScreenArea: 100%;
+
+#bundle(){
+.fontProperties{
+    color:@headerAndFooterTextColor;
+    font-size: 2em;
+    line-height: 2em; 
+}
+.borderProperties{
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.boxProperties{
+    margin: 0 auto;
+    overflow: hidden;
+    text-align: center;
+}
+}
+
+body {
+    font-family: @fontFamily;
+    font-weight: 600;
+    background-color: @backgroundColor;
+    letter-spacing: 2px;
+    line-height: 25px;
+}
+
+header{
+    #bundle.fontProperties;
+    #bundle.boxProperties;
+    #bundle.borderProperties;
+    h1{
+        margin-top: 20px;
+
+    }
+    background-image: url("./img/header.jfif");
+    width: @totalScreenArea - @distanceToMainBox;
+    height: 180px;
+    padding-top: 10px;
+}
+
+footer{
+    #bundle.fontProperties;
+    #bundle.boxProperties;
+    #bundle.borderProperties;
+    background-image: url("./img/header.jfif");
+    width: @totalScreenArea - @distanceToMainBox;
+    height: 50px;
+}
+
+.main{
+    #bundle.boxProperties;
+    #bundle.borderProperties;
+    width: @totalScreenArea - @distanceToMainBox;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: @colorMainBox;
+    color: contrast(@colorMainBox);
+}
+
+.germ {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.item img {
+    max-width: 250px;
+}
+
+nav {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    list-style-position: inside;
+}
+
+em{
+    color: red;
+}
+
+[href]{
+    color: linkColor;
+}
+
+
+

@@ -1,83 +1,69 @@
 body {
-    font-family: 'Source Code Pro', monospace;
-    font-weight: 600;
-    background-color: lightgray;
-    letter-spacing: 2px;
-    line-height: 25px;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 600;
+  background-color: lightgray;
+  letter-spacing: 2px;
+  line-height: 25px;
 }
-
-header{
-    background-image: url("./img/header.jfif");
-    color: lawngreen;
-    width: 75%;
-    height: 180px;
-    padding-top: 10px;
-    text-align: center;
-    font-size: 2em;
-    margin: 0 auto;
-    border-radius: 10px;
-    border: 1px solid black;
-    overflow: hidden;
-    line-height: 2em;   
+header {
+  color: #59e422;
+  font-size: 2em;
+  line-height: 2em;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-image: url("img/header.jfif");
+  width: 80%;
+  height: 180px;
+  padding-top: 10px;
 }
-
-h1{
-    margin-top: 20px;
+header h1 {
+  margin-top: 20px;
 }
-
-
-
-
-
-footer{
-    background-image: url("./img/header.jfif");
-    color: lawngreen;
-    width: 75%;
-    height: 50px;
-    text-align: center;
-    margin: 0 auto;
-    border-radius: 10px;
-    border: 1px solid black;
-    overflow: hidden;
+footer {
+  color: #59e422;
+  font-size: 2em;
+  line-height: 2em;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid black;
+  background-image: url("img/header.jfif");
+  width: 80%;
+  height: 50px;
 }
-
-.main{
-    width: 75%;
-    margin: 0 auto;
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: white;
-    overflow: hidden;
- 
+.main {
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid black;
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  color: #000000;
 }
-
 .germ {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
 }
-
 .item img {
-    max-width: 250px;
+  max-width: 250px;
 }
-
 nav {
-    width: 75%;
-    margin: 0 auto;
-    text-align: center;
-    list-style-position: inside;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  list-style-position: inside;
 }
-
-em{
-    color: red;
+em {
+  color: red;
 }
-
-[href]{
-    color: black;
+[href] {
+  color: linkColor;
 }
-
-
-
