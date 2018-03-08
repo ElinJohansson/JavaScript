@@ -39,12 +39,21 @@ header{
     #bundle.borderProperties;
     h1{
         margin-top: 20px;
-
     }
+  
     background-image: url("./img/header.jfif");
     width: @totalScreenArea - @distanceToMainBox;
     height: 180px;
     padding-top: 10px;
+}
+
+header:hover{
+    margin-top: 0px;
+    background-image: none;
+    background-color: red;
+    height:5em;
+    font-size: 3em;
+    transition: background-color, font-size, height, margin-top, background-color linear;
 }
 
 footer{
@@ -72,7 +81,12 @@ footer{
     border-radius: 50%;
 }
 
-.item img {
+.germ:hover {
+    transform: rotateZ(1080deg);
+    transition: transform 4s ease-in-out;
+}
+
+.item img:hover {
     max-width: 250px;
 }
 
@@ -87,8 +101,10 @@ em{
     color: red;
 }
 
-[href]{
-    color: linkColor;
+[href^=index]:hover{
+    color: @linkColor;
+    background-color: red;
+    transition: background-color ease;
 }
 
 
