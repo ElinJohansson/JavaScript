@@ -1,31 +1,45 @@
-window.onload = function(){
-    document.getElementById("button").addEventListener("click", startGame());
+let answer;
+let counter;
+let ruleCounter = 1;
+
+function startGame() {
+    document.getElementById("playground").classList.remove("hidden");
+    document.getElementById("badResult").classList.add("hidden");
+    
+    //Randomisera fram ett tal
+    answer = Math.floor(Math.random() * 10) + 1;
+    counter = 1;
+    //Skapar en array av listelementen
+    let numberArray = document.getElementsByClassName("number");
+    //Löper igenom list-elementen och lägger till en eventlistener på varje li-element
+    for (let i = 0; i < numberArray.length; i++) {
+        numberArray[i].addEventListener("click", pressedNumber);
+        numberArray[i].classList.remove("invisible");
+    }
 }
 
-function startGame(){
-        let isCorrect = false;
-        let counter = 1;
-        let newGame = true;
+//e is for event, kollar om siffran man trycker på är samma som answer
+function pressedNumber(e) {
+    console.log("You pressed", arguments);
+    if (answer === Number(e.target.innerHTML)) {
+        window.location = "win.html";
+    } else if (counter === 3) {
+        document.getElementById("playground").classList.add("hidden");
+        document.getElementById("badResult").classList.remove("hidden");
+    } else {
+        e.target.classList.add("invisible");
+        counter++;
+    }
+}
 
-        while(newGame){
-            let answer = Math.floor(Math.random()*10)+1;
-            while(!isCorrect){
-              let guess = parseInt(prompt("Enter your guess:"));
-                 if(guess === answer){
-                    alert("Correct!");
-                    isCorrect = true;
-                    counter = 0;
-                } else if(counter === 3){
-                    alert("You failed to guess the correct number. The correct number was "+answer);
-                    break;
-                } else {
-                    counter++;
-                }
-            }  
-            counter = 1;
-            newGame = confirm("New game?");
-        }
-    
+function displayRules(){
+    if(ruleCounter%2 === 1){
+
+        document.getElementById("rules").classList.remove("hidden");
+    } else {
+        document.getElementById("rules").classList.add("hidden");
+    }
+    ruleCounter++;
 }
 
 
