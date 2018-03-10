@@ -71,5 +71,5 @@ a:active {
 }
 #win:hover {
   background-image: url('img/smiley.jpeg');
-  transition: background-image 2s ease-in-out;
+  transition: background-image, 3s ease-in-out;
 }
