@@ -96,6 +96,14 @@ li {
 .invisible {
   visibility: hidden;
 }
+.correctAnswer {
+  padding: 8px;
+  border: 2px solid cadetblue;
+  border-radius: 8px;
+}
+.avoid-clicks {
+  pointer-events: none;
+}
 #win {
   background-image: url("img/unicorn.jpeg");
   margin-bottom: 30px;
