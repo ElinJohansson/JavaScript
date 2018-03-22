@@ -14,7 +14,7 @@ function enterGuess(currentState, newGuess, ui) {
     // code which looks at current state and new guess, and calculates
     // a -new- state and returns it 
 
-    let appState = {
+    let newAppState = {
         answer: currentState.answer,
         remaining: currentState.remaining,
         playing: currentState.playing,
@@ -25,23 +25,23 @@ function enterGuess(currentState, newGuess, ui) {
     if (ui.input.value) {
         let validation = validateInput(newGuess);
         if (validation) {
-            appState.feedback = validation;
-            appState.placeholder = 'Guess again';
+            newAppState.feedback = validation;
+            newAppState.placeholder = 'Guess again';
         } else
             if (Number(newGuess) === currentState.answer) {
-                appState.feedback = "GG! You guess the correct number!";
-                appState.playing = false;
+                newAppState.feedback = "GG! You guess the correct number!";
+                newAppState.playing = false;
             } else if (Number(newGuess) !== currentState.answer && appState.remaining === 1) {
-                appState.feedback = "You're out of tries, better luck next time!";
-                appState.playing = false;
-                appState.placeholder = ':(';
+                newAppState.feedback = "You're out of tries, better luck next time!";
+                newAppState.playing = false;
+                newAppState.placeholder = ':(';
             } else if (Number(newGuess) !== currentState.answer && currentState.remaining > 0) {
-                appState.remaining = appState.remaining - 1;
-                appState.feedback = `You have ${appState.remaining} tries left`;
-                appState.placeholder = 'Guess again';
+                newAppState.remaining = appState.remaining - 1;
+                newAppState.feedback = `You have ${appState.remaining} tries left`;
+                newAppState.placeholder = 'Guess again';
             }
     }
-    return appState;
+    return newAppState;
 }
 
 function newState() {
@@ -65,21 +65,17 @@ function validateInput(guess) {
 }
 
 function render(currentState, ui) {
+    ui.feedback.innerHTML = currentState.feedback;
+    ui.input.placeholder = currentState.placeholder;
+    ui.input.focus();
+    ui.input.value = '';
     // code which updates the ui elements according to the current state
     if (currentState.playing) {
         ui.submitBtn.classList.remove("hidden");
         ui.resetBtn.classList.add("hidden");
-        ui.feedback.innerHTML = currentState.feedback;
-        ui.input.placeholder = currentState.placeholder;
-        ui.input.focus();
-        ui.input.value = '';
     } else {
         ui.submitBtn.classList.add("hidden");
         ui.resetBtn.classList.remove("hidden");
-        ui.feedback.innerHTML = currentState.feedback;
-        ui.input.placeholder = currentState.placeholder;
-        ui.input.focus();
-        ui.input.value = '';
     }
 }
 
