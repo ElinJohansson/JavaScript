@@ -8,7 +8,7 @@
 
     <link href="style.css" type="text/css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-    <script src="script.js" type="text/javascript"></script>
+
     <title>Number Guessing Game</title>
 
 </head>
@@ -18,8 +18,8 @@
         <h1>Guess the number - win a prize!</h1>
     </header>
 
-    <button id="button" onclick="startGame()">Start New Game</button>
-    <button id="button" onclick="displayRules()">Rules</button>
+    <button id="startBtn">Start New Game</button>
+    <button id="rulesBtn">Rules</button>
     <div id="rules" class="hidden">
         <p>You get 3 tries to guess the correct number. Click on your choice!</p>
     </div>
@@ -39,6 +39,8 @@
     </div>
 
     <img src="./img/dice.jpeg" alt="Try your luck!" title="Try your luck!">
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="script.js" type="text/javascript"></script>
 
 </body>
 

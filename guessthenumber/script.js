@@ -1,57 +1,61 @@
-let answer;
-let counter;
-let ruleCounter = 1;
+
+function newAppState() {
+    return {
+        answer: Math.floor(Math.random() * 10) + 1,
+        remainingTries: 3,
+        showRules: false,
+        gameOver: false
+    };
+}
+
+function render(currentAppState) {
+    if (currentAppState.showRules) {
+        $("#rules").removeClass("hidden");
+    } else {
+        $("#rules").addClass("hidden");
+    }
+    if (currentAppState.gameOver) {
+        $(".number").each(function(){
+            if(Number(this.innerHTML) === currentAppState.answer){
+                $(this).addClass("correctAnswer");
+            }
+        });
+        $("#playground").addClass("avoid-clicks");
+    } else {
+        $("#playground").removeClass("hidden avoid-clicks");
+        $(".number").removeClass("correctAnswer");
+    }
+}
+
+let appState = {
+};
 
 function startGame() {
-    document.getElementById("playground").classList.remove("hidden");
-    document.getElementById("playground").classList.remove("avoid-clicks");
-
-    //Randomisera fram ett tal
-    answer = Math.floor(Math.random() * 10) + 1;
-    counter = 1;
-    //Skapar en array av listelementen
-    let numberArray = document.getElementsByClassName("number");
-    //Löper igenom list-elementen och lägger till en eventlistener på varje li-element
-    for (let i = 0; i < numberArray.length; i++) {
-        numberArray[i].addEventListener("click", pressedNumber);
-        numberArray[i].classList.remove("invisible");
-        numberArray[i].classList.remove("correctAnswer");
-    }
+    appState = newAppState();
+    $(".number").removeClass("invisible");
+    render(appState);
 }
 
-//e is for event, kollar om siffran man trycker på är samma som answer
-function pressedNumber(e) {
-
-    if (answer === Number(e.target.innerHTML)) {
+$("#playground").on("click", ".number", function (e) {
+    if (appState.answer === Number(e.target.innerHTML)) {
         window.location = "win.html";
-    } else if (counter === 3) {
+    } else if (appState.remainingTries === 1) {
         e.target.classList.add("invisible");
-        displayAnswer(answer);
-        document.getElementById("playground").classList.add("avoid-clicks");
+        appState.gameOver = true;
     } else {
         e.target.classList.add("invisible");
-        counter++;
+        appState.remainingTries--;
     }
-}
+    render(appState);
+});
 
+$("#rulesBtn").on("click", function (e) {
+    appState.showRules = !appState.showRules;
+    render(appState);
+});
 
-function displayRules() {
-    if (ruleCounter % 2 === 1) {
-        document.getElementById("rules").classList.remove("hidden");
-    } else {
-        document.getElementById("rules").classList.add("hidden");
-    }
-    ruleCounter++;
-}
-
-function displayAnswer(answer) {
-    let numberArray = document.getElementsByClassName("number");
-    for (let i = 0; i < numberArray.length; i++) {
-        if (Number(numberArray[i].innerHTML) === answer) {
-            numberArray[i].classList.add("correctAnswer");
-        }
-    }
-}
-
+$("#startBtn").on("click", function (e) {
+    startGame();
+});
 
 
